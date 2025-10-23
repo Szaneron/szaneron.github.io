@@ -1,36 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import { ArrowRight, LocateFixed, Briefcase, Linkedin } from "lucide-react";
+import {
+  EMAILJS_CONTACT_ME_TEMPLATE_ID,
+  EMAILJS_PUBLIC_KEY,
+  EMAILJS_SERVICE_ID,
+} from "@/config/emailjs";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const form = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! I'll get back to you soon.");
-
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+    emailjs
+      .sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_CONTACT_ME_TEMPLATE_ID,
+        form.current!,
+        {
+          publicKey: EMAILJS_PUBLIC_KEY,
+        }
+      )
+      .then(
+        () => {
+          alert("Thank you for your message! I'll get back to you soon.");
+          setIsSubmitting(false);
+          if (form.current) form.current.reset();
+        },
+        (error) => {
+          alert("Failed to send message. Please try again later.");
+          console.log("FAILED...", error.text);
+          setIsSubmitting(false);
+        }
+      );
   };
 
   return (
@@ -108,7 +112,7 @@ const ContactSection = () => {
 
           {/* Contact Form */}
           <div className="bg-gray-900 rounded-2xl p-8 border border-gray-700">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
@@ -119,9 +123,7 @@ const ContactSection = () => {
                 <input
                   type="text"
                   id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
+                  name="user_name"
                   required
                   className="w-full px-4 py-3 bg-gray-800 text-white rounded-xl border border-gray-600 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-200 outline-none placeholder:text-gray-500"
                   placeholder="John Doe"
@@ -138,9 +140,7 @@ const ContactSection = () => {
                 <input
                   type="email"
                   id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
+                  name="user_email"
                   required
                   className="w-full px-4 py-3 bg-gray-800 text-white rounded-xl border border-gray-600 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-200 outline-none placeholder:text-gray-500"
                   placeholder="john@example.com"
@@ -157,8 +157,6 @@ const ContactSection = () => {
                 <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   required
                   rows={6}
                   className="w-full px-4 py-3 bg-gray-800 text-white rounded-xl border border-gray-600 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-200 outline-none resize-none placeholder:text-gray-500"

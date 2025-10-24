@@ -9,6 +9,7 @@ const Skills: React.FC = () => {
       skills: [
         "Python",
         "Django",
+        "Ruby",
         "Ruby on Rails",
         "RESTful APIs",
         "Celery",
@@ -16,7 +17,6 @@ const Skills: React.FC = () => {
         "OpenAI API",
         "OpenCV",
         "Microservices",
-        "Sidekiq",
       ],
       color: "from-cyan-500 to-blue-500",
     },

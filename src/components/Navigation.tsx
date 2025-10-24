@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Typewriter from "@components/common/Typewriter";
 import { Menu, X } from "lucide-react";
 
 const Navigation: React.FC = () => {
@@ -53,15 +54,11 @@ const Navigation: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-white">
+          <div className="text-2xl font-bold text-white min-h-8">
             {activeSection === "hero" ? (
-              <span>
-                <span className="text-blue-400">Developer</span> Portfolio
-              </span>
+              <Typewriter text="Developer Portfolio" highlight="Developer" />
             ) : (
-              <span>
-                <span className="text-blue-400">Armin </span>Boleń
-              </span>
+              <Typewriter text="Armin Boleń" highlight="Armin " />
             )}
           </div>
 

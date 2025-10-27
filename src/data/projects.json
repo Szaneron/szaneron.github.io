@@ -1,0 +1,69 @@
+[
+  {
+    "id": "lifehub",
+    "title": "LifeHub",
+    "scope": "Full Stack",
+    "status": "In Progress",
+    "project_type": "Web Application",
+    "shortDescription": "A personal productivity hub that centralizes daily organization — from managing finances to planning meals — in one elegant, modular application.",
+    "fullDescription": "LifeHub is a full-stack web application designed to bring structure and clarity to everyday life by unifying key personal domains into a single intelligent system. Built with Django REST Framework and React + TypeScript, it seamlessly integrates powerful data management with an intuitive and responsive UI. Current modules include a personal finance manager for tracking income, expenses, and spending analytics, as well as a recipe and meal planning system that helps users organize recipes, generate smart shopping lists, export them as PDFs, and plan meals through an interactive dashboard. With its modular architecture, LifeHub is designed to grow — enabling future expansion into new areas of life management while maintaining a consistent and enjoyable user experience.",
+    "techStack": [
+      "Python",
+      "Django",
+      "DRF",
+      "PostgreSQL",
+      "Swagger",
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind"
+    ],
+    "github_languages": [
+      { "name": "TypeScript", "percentage": 47.3, "color": "#06b6d4" },
+      { "name": "Python", "percentage": 42.1, "color": "#3b82f6" },
+      { "name": "CSS", "percentage": 5.1, "color": "#7c3aed" },
+      { "name": "JavaScript", "percentage": 4.3, "color": "#eab308" },
+      { "name": "Other", "percentage": 1.2, "color": "#e5e7eb" }
+    ],
+    "features": [
+      "Finance management module that allows users to track income and expenses, organize transactions by category, and visualize spending trends over time.",
+      "Recipe management system with full CRUD functionality — add, edit, and browse recipes with images, tags, and preparation details.",
+      "Meal planning and shopping assistant: automatically generate shopping lists from selected recipes, export them as PDF, and plan meals using an interactive dashboard.",
+      "Unified personal dashboard offering a clear overview of current progress, upcoming tasks, and daily focus areas.",
+      "Modular architecture enabling the addition of new life domains without affecting existing data or workflows.",
+      "Fast and consistent frontend built with React, TypeScript, and Tailwind CSS for a clean, responsive user experience.",
+      "Secure and well-documented REST API with Swagger (OpenAPI), ensuring reliable data communication and potential third-party integrations."
+    ],
+    "challenges": "In everyday life, personal information and tools are often scattered across multiple platforms — from apps for notes and finances to online planners and spreadsheets. This fragmentation makes it difficult to access essential data quickly, maintain consistency, and stay organized.",
+    "solution": "LifeHub consolidates diverse aspects of daily management into one coherent platform. It serves as a single, centralized access point for information and routines that matter most, offering users a unified, distraction-free environment where everything important is always within reach.",
+    "images": ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    "githubUrl": "https://github.com/Szaneron/LifeHub",
+    "showAsLarge": true
+  },
+  {
+    "id": "alpha-farm-bot",
+    "title": "Alpha Farm Bot",
+    "scope": "Full Stack",
+    "status": "In Progress",
+    "project_type": "Web Application",
+    "shortDescription": "A fully automated bot designed to optimize gold generation by taking over repetitive in-game tasks. It combines computer vision and OCR to analyze the game environment and make real-time decisions without human input.",
+    "fullDescription": "",
+    "techStack": [
+      "Python",
+      "OpenCV",
+      "PyTesseract",
+      "NumPy",
+      "PyAutoGUI",
+      "Pandas"
+    ],
+    "github_languages": [
+      { "name": "Python", "percentage": 100.0, "color": "#3572a5" }
+    ],
+    "features": [""],
+    "challenges": "",
+    "solution": "",
+    "images": ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    "githubUrl": "https://github.com/Szaneron/AlphaFarm",
+    "showAsLarge": true
+  }
+]

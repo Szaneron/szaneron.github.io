@@ -67,7 +67,7 @@ const ProjectDetail: React.FC = () => {
                       project.status === "In Progress"
                         ? "border-yellow-500/60 bg-yellow-500/10 text-yellow-400"
                         : project.status === "Finished"
-                        ? "border-green-500/60 bg-green-500/10 text-green-400"
+                        ? "border-emerald-500/60 bg-emerald-500/10 text-emerald-400"
                         : "border-gray-500/60 bg-gray-500/10 text-gray-300"
                     }`}
               >
@@ -146,7 +146,13 @@ const ProjectDetail: React.FC = () => {
                           width: `${lang.percentage}%`,
                           backgroundColor: lang.color,
                         }}
-                        className="transition-all hover:opacity-80"
+                        className={`transition-all hover:opacity-80 border border-gray-900 ${
+                          index === 0 ? "rounded-l-full" : ""
+                        } ${
+                          index === project.github_languages.length - 1
+                            ? "rounded-r-full"
+                            : ""
+                        }`}
                         title={`${lang.name} ${lang.percentage}%`}
                       />
                     ))}

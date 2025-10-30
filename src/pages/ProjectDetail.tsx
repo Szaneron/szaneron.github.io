@@ -180,25 +180,27 @@ const ProjectDetail: React.FC = () => {
             )}
 
             {/* Images Gallery */}
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-6">
-                Project Gallery
-              </h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                {project.images.map((image, index) => (
-                  <div
-                    key={index}
-                    className="aspect-video bg-linear-to-br from-blue-500/20 to-cyan-500/20 rounded-xl overflow-hidden border border-gray-700"
-                  >
-                    <img
-                      src={image}
-                      alt={`${project.title} screenshot ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
+            {project.images.length > 0 && (
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-6">
+                  Project Gallery
+                </h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {project.images.map((image, index) => (
+                    <div
+                      key={index}
+                      className="aspect-video bg-linear-to-br from-blue-500/20 to-cyan-500/20 rounded-xl overflow-hidden border border-gray-700"
+                    >
+                      <img
+                        src={image}
+                        alt={`${project.title} screenshot ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Features */}
             <div>

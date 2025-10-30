@@ -37,7 +37,12 @@
     ],
     "challenges": "In everyday life, personal information and tools are often scattered across multiple platforms — from apps for notes and finances to online planners and spreadsheets. This fragmentation makes it difficult to access essential data quickly, maintain consistency, and stay organized.",
     "solution": "LifeHub consolidates diverse aspects of daily management into one coherent platform. It serves as a single, centralized access point for information and routines that matter most, offering users a unified, distraction-free environment where everything important is always within reach.",
-    "images": ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    "images": [
+      "/projects/lifehub/1.png",
+      "/projects/lifehub/2.png",
+      "/projects/lifehub/3.png",
+      "/projects/lifehub/4.png"
+    ],
     "githubUrl": "https://github.com/Szaneron/LifeHub",
     "showAsLarge": true
   },
@@ -66,7 +71,11 @@
     ],
     "challenges": "Manual farming is repetitive, error-prone, and time-consuming; precise navigation and timely consumable usage are hard to maintain over long sessions, and UI variations or occlusions can break naive automation.",
     "solution": "Use robust computer vision and OCR to ground decisions in on-screen state, drive movement through deterministic checkpoint scripts, and orchestrate combat and resource logic with clear recovery paths and detailed action logs—reducing friction and maximizing uptime.",
-    "images": ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    "images": [
+      "/projects/alphafarm/1.png",
+      "/projects/alphafarm/2.png",
+      "/projects/alphafarm/3.png"
+    ],
     "githubUrl": "https://github.com/Szaneron/AlphaFarm",
     "showAsLarge": true
   },
@@ -105,7 +114,12 @@
     ],
     "challenges": "Warehouse information is often split across emails, spreadsheets, and chat messages, which makes it difficult to know what is arriving, who is doing what, and where stock is located. This fragmentation slows down operations and leads to avoidable errors.",
     "solution": "Shopdex centralizes deliveries, tasks, and inventory in one system that reflects the current state of the warehouse. It reduces context switching, improves assignment and accountability, and gives supervisors the visibility they need to keep goods moving on time.",
-    "images": ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    "images": [
+      "/projects/shopdex/1.png",
+      "/projects/shopdex/2.png",
+      "/projects/shopdex/3.png",
+      "/projects/shopdex/4.png"
+    ],
     "githubUrl": "https://github.com/Szaneron/Shopdex",
     "showAsLarge": false
   },
@@ -145,7 +159,7 @@
     ],
     "challenges": "Manual result reporting is error-prone and susceptible to manipulation, while bracket updates and team administration create additional overhead for organizers.",
     "solution": "Automated screenshot analysis and tamper detection ensure trustworthy results, and integrated team, bracket, and ranking workflows reduce administrative effort while keeping the competition clear and consistent.",
-    "images": ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    "images": ["/projects/battlewind/1.png", "/projects/battlewind/2.png"],
     "githubUrl": "https://github.com/Szaneron/Battlewind",
     "showAsLarge": false
   },
@@ -182,7 +196,7 @@
     ],
     "challenges": "Finding recipes, tracking ingredients, and preparing a shopping list usually means switching between multiple tabs and notes, which makes planning meals slow and error prone.",
     "solution": "CookItUp centralizes discovery, guidance, and preparation in one application. It connects an external recipe database with clear presentation and a practical shopping workflow, reducing friction from the moment of search to the moment of purchase.",
-    "images": ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    "images": [],
     "githubUrl": "https://github.com/Szaneron/CookItUp",
     "showAsLarge": false
   },
@@ -221,7 +235,10 @@
     ],
     "challenges": "Community discussions often become fragmented across multiple pages and tools, which makes it hard to follow updates, discover relevant topics, and maintain a welcoming environment for new contributors.",
     "solution": "The forum brings projects, questions, answers, and comments into a single, structured platform with search, pagination, and moderation. It provides clear content organization and simple participation flows so that users can share knowledge and keep conversations productive.",
-    "images": ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    "images": [
+      "/projects/internet-forum/1.png",
+      "/projects/internet-forum/2.png"
+    ],
     "githubUrl": "https://github.com/Szaneron/Internet-forum",
     "showAsLarge": false
   }

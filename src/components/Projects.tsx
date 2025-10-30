@@ -1,98 +1,11 @@
 import React from "react";
 import { Github, ArrowRight, Image } from "lucide-react";
+import projectsData from "@data/projects.json";
+import type { Project } from "@/types/project";
+import { Link } from "react-router-dom";
 
 const Projects: React.FC = () => {
-  const projects = [
-    {
-      title: "LifeHub",
-      description:
-        "A modular daily life manager featuring advanced recipe organization, shopping list and meal planning tools, as well as a dedicated module for managing personal finances.",
-      techStack: [
-        "Python",
-        "Django",
-        "PostgreSQL",
-        "Swagger",
-        "React",
-        "TypeScript",
-      ],
-      githubUrl: "https://github.com/Szaneron/LifeHub",
-      moreInfo: "#",
-      featured: true,
-    },
-    {
-      title: "Alpha Farm Bot",
-      description:
-        "A fully automated bot designed to optimize gold generation by taking over repetitive in-game tasks. It combines computer vision and OCR to analyze the game environment and make real-time decisions without human input.",
-      techStack: [
-        "Python",
-        "OpenCV",
-        "PyTesseract",
-        "NumPy",
-        "PyAutoGUI",
-        "Pandas",
-      ],
-      githubUrl: "https://github.com/Szaneron/AlphaFarm",
-      moreInfo: "#",
-      featured: true,
-    },
-    {
-      title: "Shopdex",
-      description:
-        "A web application created to support daily warehouse and logistics workflows, helping teams coordinate deliveries, tasks, and inventory management.",
-      techStack: [
-        "Python",
-        "Django",
-        "Sqlite",
-        "OpenCV",
-        "NumPy",
-        "PostgreSQL",
-        "Bootstrap",
-      ],
-      githubUrl: "https://github.com/Szaneron/Shopdex",
-      moreInfo: "#",
-      featured: false,
-    },
-    {
-      title: "Battlewind",
-      description:
-        "A full-stack web application streamlining the organization and management of esports tournaments with automated brackets and transparent results.",
-      techStack: [
-        "Python",
-        "Django",
-        "OpenCV",
-        "PyTesseract",
-        "PostgreSQL",
-        "Bootstrap",
-      ],
-      githubUrl: "https://github.com/Szaneron/Battlewind",
-      moreInfo: "#",
-      featured: false,
-    },
-    {
-      title: "CookItUp",
-      description:
-        "A web application for discovering recipes and planning meals, powered by the Spoonacular API to deliver personalized nutrition and culinary inspiration.",
-      techStack: [
-        "Python",
-        "Django",
-        "Requests",
-        "ReportLab",
-        "Spoonacular API",
-      ],
-      githubUrl: "https://github.com/Szaneron/CookItUp",
-      moreInfo: "#",
-      featured: false,
-    },
-    {
-      title: "Internet forum",
-      description:
-        "An interactive forum platform enabling users to create threads, ask questions, and build community through discussions and project collaboration.",
-      techStack: ["Python", "Django", "SQLite", "Bootstrap"],
-      githubUrl: "https://github.com/Szaneron/Internet-forum",
-      moreInfo: "#",
-      featured: false,
-    },
-  ];
+  const projects: Project[] = projectsData;
 
   return (
     <section id="projects" className="py-20 bg-gray-800">
@@ -110,15 +23,22 @@ const Projects: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
           {projects
-            .filter((project) => project.featured)
+            .filter((project) => project.showAsLarge)
             .map((project, index) => (
               <div
                 key={index}
                 className="group bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 flex flex-col justify-between min-h-[400px]"
               >
-                {/* Project Image Placeholder */}
-                <div className="aspect-video bg-linear-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center border-b border-gray-700">
-                  <Image size={48} className="text-gray-400" />
+                <div className="aspect-video bg-linear-to-br from-blue-500/20 to-cyan-500/20 overflow-hidden flex items-center justify-center border-b border-gray-700">
+                  {project.images && project.images.length > 0 ? (
+                    <img
+                      src={project.images[0]}
+                      alt={`${project.title} preview`}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <Image size={48} className="text-gray-400" />
+                  )}
                 </div>
 
                 <div className="p-6 flex flex-col h-full flex-1 justify-between">
@@ -127,7 +47,7 @@ const Projects: React.FC = () => {
                       {project.title}
                     </h3>
                     <p className="text-gray-300 mb-4 leading-relaxed">
-                      {project.description}
+                      {project.shortDescription}
                     </p>
                   </div>
                   <div>
@@ -151,13 +71,13 @@ const Projects: React.FC = () => {
                         <Github size={20} />
                         <span>Code</span>
                       </a>
-                      <a
-                        href={project.moreInfo}
+                      <Link
+                        to={`/project/${project.id}`}
                         className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors"
                       >
                         <ArrowRight size={20} />
-                        <span>Project details</span>
-                      </a>
+                        <span>Project Details</span>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -168,7 +88,7 @@ const Projects: React.FC = () => {
         {/* Other Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 h-full">
           {projects
-            .filter((project) => !project.featured)
+            .filter((project) => !project.showAsLarge)
             .map((project, index) => (
               <div
                 key={index}
@@ -179,7 +99,7 @@ const Projects: React.FC = () => {
                     {project.title}
                   </h4>
                   <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-                    {project.description}
+                    {project.shortDescription}
                   </p>
                 </div>
                 <div>
@@ -207,12 +127,13 @@ const Projects: React.FC = () => {
                     >
                       <Github size={16} />
                     </a>
-                    <a
-                      href={project.moreInfo}
-                      className="text-blue-400 hover:text-blue-300 transition-colors"
+                    <Link
+                      to={`/project/${project.id}`}
+                      className="flex items-center text-xs space-x-2 text-blue-400 hover:text-blue-300 transition-colors"
                     >
                       <ArrowRight size={16} />
-                    </a>
+                      <span>Details</span>
+                    </Link>
                   </div>
                 </div>
               </div>

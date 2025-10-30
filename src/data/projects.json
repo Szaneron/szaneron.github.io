@@ -1,0 +1,245 @@
+[
+  {
+    "id": "lifehub",
+    "title": "LifeHub",
+    "scope": "Full Stack",
+    "status": "In Progress",
+    "project_type": "Web Application",
+    "shortDescription": "A personal productivity hub that centralizes daily organization from managing finances to planning meals in one elegant, modular application.",
+    "fullDescription": "LifeHub is a full-stack web application designed to bring structure and clarity to everyday life by unifying key personal domains into a single intelligent system. Built with Django REST Framework and React + TypeScript, it seamlessly integrates powerful data management with an intuitive and responsive UI. Current modules include a personal finance manager for tracking income, expenses, and spending analytics, as well as a recipe and meal planning system that helps users organize recipes, generate smart shopping lists, export them as PDFs, and plan meals through an interactive dashboard. With its modular architecture, LifeHub is designed to grow — enabling future expansion into new areas of life management while maintaining a consistent and enjoyable user experience.",
+    "techStack": [
+      "Python",
+      "Django",
+      "DRF",
+      "PostgreSQL",
+      "Swagger",
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind",
+      "Git"
+    ],
+    "github_languages": [
+      { "name": "TypeScript", "percentage": 47.3, "color": "#06b6d4" },
+      { "name": "Python", "percentage": 42.1, "color": "#3b82f6" },
+      { "name": "CSS", "percentage": 5.1, "color": "#7c3aed" },
+      { "name": "JavaScript", "percentage": 4.3, "color": "#eab308" },
+      { "name": "Other", "percentage": 1.2, "color": "#e5e7eb" }
+    ],
+    "features": [
+      "Finance management module that allows users to track income and expenses, organize transactions by category, and visualize spending trends over time.",
+      "Recipe management system with full CRUD functionality — add, edit, and browse recipes with images, tags, and preparation details.",
+      "Meal planning and shopping assistant: automatically generate shopping lists from selected recipes, export them as PDF, and plan meals using an interactive dashboard.",
+      "Unified personal dashboard offering a clear overview of current progress, upcoming tasks, and daily focus areas.",
+      "Modular architecture enabling the addition of new life domains without affecting existing data or workflows.",
+      "Fast and consistent frontend built with React, TypeScript, and Tailwind for a clean, responsive user experience.",
+      "Secure and well-documented REST API with Swagger (OpenAPI), ensuring reliable data communication and potential third-party integrations."
+    ],
+    "challenges": "In everyday life, personal information and tools are often scattered across multiple platforms — from apps for notes and finances to online planners and spreadsheets. This fragmentation makes it difficult to access essential data quickly, maintain consistency, and stay organized.",
+    "solution": "LifeHub consolidates diverse aspects of daily management into one coherent platform. It serves as a single, centralized access point for information and routines that matter most, offering users a unified, distraction-free environment where everything important is always within reach.",
+    "images": [
+      "/projects/lifehub/1.png",
+      "/projects/lifehub/2.png",
+      "/projects/lifehub/3.png",
+      "/projects/lifehub/4.png"
+    ],
+    "githubUrl": "https://github.com/Szaneron/LifeHub",
+    "showAsLarge": true
+  },
+  {
+    "id": "alphafarm",
+    "title": "AlphaFarm",
+    "scope": "Scripting",
+    "status": "Finished",
+    "project_type": "Automation / Bot",
+    "shortDescription": "A computer vision powered automation script that performs full boss runs and routine farming in Broken Ranks, handling navigation, combat, and resource management.",
+    "fullDescription": "AlphaFarm is a Python automation project that streamlines repetitive boss runs in Broken Ranks by combining computer vision, OCR, and input scripting. The bot recognizes UI elements and environment landmarks, navigates cave instances through predefined checkpoints, engages enemies using configurable tactics, and manages consumables to sustain long sessions. It includes modules for movement, combat, and resources; uses Tesseract OCR to read on-screen text (e.g., enemy names), and relies on template matching for entrances and checkpoints. The script is optimized for 1920×1080 windowed mode, prints all executed actions for traceability, and offers an executable build branch for easy distribution.",
+    "techStack": ["Python", "OpenCV", "NumPy", "PyAutoGUI", "Tesseract"],
+    "github_languages": [
+      { "name": "Python", "percentage": 100.0, "color": "#3b82f6" }
+    ],
+    "features": [
+      "Automated cave runs with checkpoint-based navigation across River, Right, and Canyon instances.",
+      "Vision driven detection of entrances, checkpoints, and UI elements using template matching.",
+      "OCR assisted enemy recognition and state checks via Tesseract for reliable decision making.",
+      "Combat routines with configurable tactics and automated input handling.",
+      "Resource control: monitoring health/mana, potion usage, and post boss recovery flows.",
+      "Inventory hygiene, including removal of specified items to keep slots available.",
+      "Return to entrance routine after boss kill and safe exit from the instance.",
+      "Console logging of all actions to aid debugging and runtime observability.",
+      "Two branches: IDE friendly run and a packaged executable variant."
+    ],
+    "challenges": "Manual farming is repetitive, error-prone, and time-consuming; precise navigation and timely consumable usage are hard to maintain over long sessions, and UI variations or occlusions can break naive automation.",
+    "solution": "Use robust computer vision and OCR to ground decisions in on-screen state, drive movement through deterministic checkpoint scripts, and orchestrate combat and resource logic with clear recovery paths and detailed action logs—reducing friction and maximizing uptime.",
+    "images": [
+      "/projects/alphafarm/1.png",
+      "/projects/alphafarm/2.png",
+      "/projects/alphafarm/3.png"
+    ],
+    "githubUrl": "https://github.com/Szaneron/AlphaFarm",
+    "showAsLarge": true
+  },
+  {
+    "id": "shopdex",
+    "title": "Shopdex",
+    "scope": "Full Stack",
+    "status": "Finished",
+    "project_type": "Web Application",
+    "shortDescription": "A web application that streamlines daily warehouse and logistics operations by coordinating deliveries, worker tasks, and inventory in one place.",
+    "fullDescription": "Shopdex supports day to day warehouse workflows from inbound receiving to outbound shipping. The system helps teams register and schedule deliveries, assign and track operational tasks on the floor, and maintain accurate stock levels across locations. It provides a clear picture of what is arriving, what is being processed, and what is ready to ship. The interface focuses on speed and clarity so that supervisors and operators can make decisions quickly and keep the flow of goods predictable.",
+    "techStack": [
+      "Python",
+      "Django",
+      "SQLite",
+      "NumPy",
+      "Bootstrap",
+      "ReportLab",
+      "Git"
+    ],
+    "github_languages": [
+      { "name": "Python", "percentage": 34.1, "color": "#3b82f6" },
+      { "name": "HTML", "percentage": 30.9, "color": "#ef4444" },
+      { "name": "CSS", "percentage": 20.8, "color": "#7c3aed" },
+      { "name": "JavaScript", "percentage": 14.2, "color": "#eab308" }
+    ],
+    "features": [
+      "Inbound delivery scheduling with time windows, carrier details, and dock assignments so that receiving is predictable and conflicts are minimized.",
+      "Receiving workflows that register shipment contents, capture discrepancies, and create put-away tasks linked to storage locations.",
+      "Task management for warehouse staff with clear priorities, statuses, and ownership so that supervisors can balance the workload in real time.",
+      "Inventory tracking with SKU locations, minimum stock thresholds, and cycle counts to keep records accurate and prevent stockouts.",
+      "Outbound preparation with label printing, shipment handoff records, and audit trails so that every order leaves the warehouse with proper documentation.",
+      "Operational dashboard that surfaces today’s arrivals, active tasks, and bottlenecks to keep everyone aligned on what matters now.",
+      "Notifications and alerts for late arrivals, blocked tasks, and low stock so that issues are handled before they escalate.",
+      "Data import and export in CSV or Excel format to make onboarding and reporting straightforward."
+    ],
+    "challenges": "Warehouse information is often split across emails, spreadsheets, and chat messages, which makes it difficult to know what is arriving, who is doing what, and where stock is located. This fragmentation slows down operations and leads to avoidable errors.",
+    "solution": "Shopdex centralizes deliveries, tasks, and inventory in one system that reflects the current state of the warehouse. It reduces context switching, improves assignment and accountability, and gives supervisors the visibility they need to keep goods moving on time.",
+    "images": [
+      "/projects/shopdex/1.png",
+      "/projects/shopdex/2.png",
+      "/projects/shopdex/3.png",
+      "/projects/shopdex/4.png"
+    ],
+    "githubUrl": "https://github.com/Szaneron/Shopdex",
+    "showAsLarge": false
+  },
+  {
+    "id": "battlewind",
+    "title": "Battlewind",
+    "scope": "Full Stack",
+    "status": "Finished",
+    "project_type": "Web Application",
+    "shortDescription": "A tournament management service for League of Legends that organizes teams, verifies match results with image recognition and maintains transparent brackets.",
+    "fullDescription": "Battlewind is a Django-based web service that streamlines the organization of esports tournaments. Players create teams, invite members, and register for events, while the system manages brackets and collects match statistics for profiles and rankings. The core of the platform is an image recognition module that analyzes uploaded screenshots, detects tampering, and extracts result data with OCR to advance the correct team automatically. The interface combines Bootstrap for a clean layout with jQuery Brackets for interactive ladder visualization, and the codebase includes unit tests that validate key application logic.",
+    "techStack": [
+      "Python",
+      "Django",
+      "OpenCV",
+      "PostgreSQL",
+      "Tesseract",
+      "JavaScript",
+      "jQuery",
+      "Bootstrap",
+      "Git"
+    ],
+    "github_languages": [
+      { "name": "Python", "percentage": 57.1, "color": "#3b82f6" },
+      { "name": "HTML", "percentage": 42.4, "color": "#ef4444" },
+      { "name": "JavaScript", "percentage": 0.5, "color": "#eab308" }
+    ],
+    "features": [
+      "User accounts with registration, login, profile viewing, and profile editing.",
+      "Team management that covers team creation, member invitations, acceptance and rejection flows, removals, and leaving a team.",
+      "Tournament enrollment with the ability to register a team, view active events, and withdraw before the start.",
+      "Automated bracket management that renders and updates ladders through an interactive jQuery Brackets view.",
+      "Screenshot submission after matches with server-side analysis to decide which team advances.",
+      "Image integrity checks that detect edited screenshots and protect the fairness of competition.",
+      "OCR-assisted data extraction that reads on-screen text to validate results and populate statistics.",
+      "Player rankings that aggregate match outcomes and surface comparative performance."
+    ],
+    "challenges": "Manual result reporting is error-prone and susceptible to manipulation, while bracket updates and team administration create additional overhead for organizers.",
+    "solution": "Automated screenshot analysis and tamper detection ensure trustworthy results, and integrated team, bracket, and ranking workflows reduce administrative effort while keeping the competition clear and consistent.",
+    "images": ["/projects/battlewind/1.png", "/projects/battlewind/2.png"],
+    "githubUrl": "https://github.com/Szaneron/Battlewind",
+    "showAsLarge": false
+  },
+  {
+    "id": "cookitup",
+    "title": "CookItUp",
+    "scope": "Full Stack",
+    "status": "Finished",
+    "project_type": "Web Application",
+    "shortDescription": "A user friendly web app for discovering recipes and planning meals that personalizes results with the Spoonacular API and turns ingredients into shopping list.",
+    "fullDescription": "CookItUp brings recipe discovery, meal planning, and shopping preparation into one streamlined experience. It integrates with the Spoonacular API to surface relevant dishes, enriches each recipe with structured details and nutrition, and guides users from browsing to cooking with clear instructions, wine pairings, and similar suggestions. A built-in shopping list gathers ingredients in one place and can be exported to PDF for quick, on-the-go access. The app also offers a simple contact form and newsletter subscription to keep the community engaged.",
+    "techStack": [
+      "Python",
+      "Django",
+      "Requests",
+      "ReportLab",
+      "Spoonacular API",
+      "SQLite",
+      "Git"
+    ],
+    "github_languages": [
+      { "name": "HTML", "percentage": 52.5, "color": "#ef4444" },
+      { "name": "Python", "percentage": 37.8, "color": "#3b82f6" },
+      { "name": "CSS", "percentage": 9.7, "color": "#7c3aed" }
+    ],
+    "features": [
+      "Users discover and filter recipes with search, cuisine and dish-type options, and a feed of popular or newly added items.",
+      "Detailed recipe pages present preparation time, servings, ingredients, nutrition, and step-by-step instructions that are easy to follow.",
+      "Each dish includes suggested wine pairings and links to similar recipes so that users can explore alternatives with confidence.",
+      "Ingredients can be added to a personal shopping list in one click, which keeps items organized for later use.",
+      "The shopping list can be cleared when plans change and exported to a neatly formatted PDF through ReportLab.",
+      "A welcoming home page highlights featured chefs, trending picks, and the latest additions to keep the experience fresh.",
+      "A simple contact form and a newsletter signup help users share feedback and receive curated cooking updates."
+    ],
+    "challenges": "Finding recipes, tracking ingredients, and preparing a shopping list usually means switching between multiple tabs and notes, which makes planning meals slow and error prone.",
+    "solution": "CookItUp centralizes discovery, guidance, and preparation in one application. It connects an external recipe database with clear presentation and a practical shopping workflow, reducing friction from the moment of search to the moment of purchase.",
+    "images": [],
+    "githubUrl": "https://github.com/Szaneron/CookItUp",
+    "showAsLarge": false
+  },
+  {
+    "id": "internet-forum",
+    "title": "Internet forum",
+    "scope": "Full Stack",
+    "status": "Finished",
+    "project_type": "Web Application",
+    "shortDescription": "A community driven forum where users create projects and questions, discuss ideas, and grow conversations through comments, likes, and searchable threads.",
+    "fullDescription": "Internet forum is a Django based platform that enables a community to build its own knowledge space. Users create projects and short questions, discuss them through comments and answers, and express appreciation with a like system. Profiles are editable and reflect a member’s activity, while the homepage highlights the latest content for quick entry points. Search and pagination make browsing efficient, and the built-in Django admin supports moderation and content management. The UI uses Bootstrap and Crispy Forms for a consistent experience, and SQLite provides a simple default database setup for fast local development.",
+    "techStack": [
+      "Python",
+      "Django",
+      "Docker",
+      "SQLite",
+      "Bootstrap",
+      "HTML",
+      "Git"
+    ],
+    "github_languages": [
+      { "name": "Python", "percentage": 45.6, "color": "#3b82f6" },
+      { "name": "HTML", "percentage": 41.8, "color": "#ef4444" },
+      { "name": "CSS", "percentage": 12.4, "color": "#7c3aed" },
+      { "name": "Dockerfile", "percentage": 0.2, "color": "#e5e7eb" }
+    ],
+    "features": [
+      "Users register, sign in, and manage their profiles to participate in discussions.",
+      "Project threads support creation, editing, deletion, and a like system that highlights popular topics.",
+      "A Q&A flow allows posting short questions and adding structured answers for quick problem solving.",
+      "Comment sections keep conversations focused under each project or question.",
+      "Search helps users find relevant projects and questions without scanning entire pages.",
+      "The homepage presents the newest projects and questions to surface fresh activity.",
+      "Pagination keeps lists responsive and readable as the community grows.",
+      "Django admin enables moderators to oversee content and manage users with minimal effort."
+    ],
+    "challenges": "Community discussions often become fragmented across multiple pages and tools, which makes it hard to follow updates, discover relevant topics, and maintain a welcoming environment for new contributors.",
+    "solution": "The forum brings projects, questions, answers, and comments into a single, structured platform with search, pagination, and moderation. It provides clear content organization and simple participation flows so that users can share knowledge and keep conversations productive.",
+    "images": [
+      "/projects/internet-forum/1.png",
+      "/projects/internet-forum/2.png"
+    ],
+    "githubUrl": "https://github.com/Szaneron/Internet-forum",
+    "showAsLarge": false
+  }
+]

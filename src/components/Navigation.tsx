@@ -1,9 +1,29 @@
 import { useState, useEffect } from "react";
+import Typewriter from "@components/common/Typewriter";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const Navigation: React.FC = () => {
+interface NavigationProps {
+  className?: string;
+  useRouterLinks?: boolean;
+  forceTitle?: string;
+  disableTypewriter?: boolean;
+}
+
+const Navigation: React.FC<NavigationProps> = ({
+  className,
+  useRouterLinks,
+  forceTitle,
+  disableTypewriter,
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
+  const [activeSection, setActiveSection] = useState(() => {
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      const hash = window.location.hash?.replace("#", "");
+      if (hash && hash !== "hero") return hash;
+    }
+    return "hero";
+  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -16,7 +36,7 @@ const Navigation: React.FC = () => {
   ];
 
   function handleScroll() {
-    setIsScrolled(window.scrollY > 50);
+    setIsScrolled(window.scrollY > 20);
     const current = navItems
       .map((item) => item.id)
       .find((section) => {
@@ -27,13 +47,15 @@ const Navigation: React.FC = () => {
         }
         return false;
       });
-    if (current) setActiveSection(current);
+    if (current) {
+      setActiveSection(current);
+    }
   }
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [navItems]);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -49,36 +71,62 @@ const Navigation: React.FC = () => {
         isScrolled
           ? "bg-gray-900/95 backdrop-blur-lg shadow-lg"
           : "bg-transparent"
-      }`}
+      } ${className ?? ""}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-white">
-            {activeSection === "hero" ? (
+          <div className="text-2xl font-bold text-white min-h-8">
+            {forceTitle ? (
               <span>
-                <span className="text-blue-400">Developer</span> Portfolio
+                <span className="text-blue-500">Armin</span> Boleń
               </span>
+            ) : disableTypewriter ? (
+              <span>
+                <span className="text-blue-500">Armin</span> Boleń
+              </span>
+            ) : typeof window !== "undefined" &&
+              window.location.pathname === "/" ? (
+              <Typewriter
+                text={
+                  activeSection === "hero"
+                    ? "Developer Portfolio"
+                    : "Armin Boleń"
+                }
+                highlight={activeSection === "hero" ? "Developer" : "Armin "}
+              />
             ) : (
               <span>
-                <span className="text-blue-400">Armin </span>Boleń
+                <span className="text-blue-500">Armin</span> Boleń
               </span>
             )}
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                aria-label={`Go to ${item.label}`}
-                onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-blue-400 ${
-                  activeSection === item.id ? "text-blue-400" : "text-gray-300"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) =>
+              useRouterLinks ? (
+                <Link
+                  key={item.id}
+                  to={`/#${item.id}`}
+                  className={`text-sm font-medium transition-colors duration-200 hover:text-blue-400 text-gray-300`}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.id}
+                  aria-label={`Go to ${item.label}`}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`text-sm font-medium transition-colors duration-200 hover:text-blue-400 ${
+                    activeSection === item.id
+                      ? "text-blue-400"
+                      : "text-gray-300"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              )
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -93,18 +141,30 @@ const Navigation: React.FC = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-gray-900/95 backdrop-blur-lg rounded-lg mt-2 p-4">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                aria-label={`Go to ${item.label}`}
-                onClick={() => scrollToSection(item.id)}
-                className={`block w-full py-2 text-sm font-medium transition-colors duration-200 hover:text-blue-400 ${
-                  activeSection === item.id ? "text-blue-400" : "text-gray-300"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) =>
+              useRouterLinks ? (
+                <Link
+                  key={item.id}
+                  to={`/#${item.id}`}
+                  className={`block w-full py-2 text-sm font-medium transition-colors duration-200 hover:text-blue-400 text-gray-300`}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.id}
+                  aria-label={`Go to ${item.label}`}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`block w-full py-2 text-sm font-medium transition-colors duration-200 hover:text-blue-400 ${
+                    activeSection === item.id
+                      ? "text-blue-400"
+                      : "text-gray-300"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              )
+            )}
           </div>
         )}
       </div>

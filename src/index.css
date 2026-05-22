@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
 
 /* ============================================================
    ARMIN BOLEŃ — Portfolio v4
@@ -31,9 +33,18 @@
   --color-accent:   #ff6b3d;
   --color-accent-2: #c84a22;
 
-  /* Typography */
-  --font-sans: "Geist", system-ui, -apple-system, sans-serif;
-  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+  /* Typography — "Geist Variable" is the family name from @fontsource-variable/geist */
+  --font-sans: "Geist Variable", "Geist", system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono Variable", "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+
+  /* Layout spacing — px-pad, py-pad, etc. */
+  --spacing-pad: clamp(1.5rem, 5vw, 5rem);
+
+  /* Custom text sizes */
+  --text-xxs: 0.6875rem; /* 11px */
+
+  /* Durations */
+  --duration-250: 250ms;
 }
 
 /* ── CSS shorthand aliases (for vanilla CSS & JS refs) ───── */
@@ -58,30 +69,36 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ── Base reset ───────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── Base styles ─────────────────────────────────────────────────────────
+   Tailwind v4 preflight (in @layer base) already handles:
+     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+   DO NOT repeat that rule here — un-layered styles win over @layer utilities,
+   which would break every px-*, py-*, gap-* utility class.
+   All custom base styles go inside @layer base so utilities can still override.
+   ──────────────────────────────────────────────────────────────────────── */
+@layer base {
+  html { scroll-behavior: smooth; }
 
-html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
 
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  ::selection { background: var(--accent); color: #0a0a0a; }
+
+  a   { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  h1, h2, h3, h4, h5 { font-weight: 500; letter-spacing: -0.02em; }
+  h1 { letter-spacing: -0.035em; }
 }
-
-::selection { background: var(--accent); color: #0a0a0a; }
-
-a   { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
-
-h1, h2, h3, h4, h5 { font-weight: 500; letter-spacing: -0.02em; }
-h1 { letter-spacing: -0.035em; }
 
 /* ── Scroll reveal ────────────────────────────────────────── */
 .reveal {
@@ -124,8 +141,8 @@ h1 { letter-spacing: -0.035em; }
 .section-inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding-left:  var(--pad-x);
-  padding-right: var(--pad-x);
+  padding-left:  var(--spacing-pad);
+  padding-right: var(--spacing-pad);
 }
 
 /* ── Eyebrow (section number + tail line + label) ─────────── */
@@ -149,6 +166,19 @@ h1 { letter-spacing: -0.035em; }
   flex-shrink: 0;
 }
 .eyebrow-num { color: var(--accent); }
+
+/* ── Mobile nav link typography ──────────────────────────── */
+/*    clamp is intentional — can't be expressed as a Tailwind utility  */
+.mn-link {
+  font-size: clamp(34px, 9vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transition:
+    opacity      0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform    0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    color        0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    padding-left 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
 /* ── Reduce-motion overrides ──────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {

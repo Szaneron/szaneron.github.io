@@ -1,6 +1,7 @@
 import { useScrollReveal } from "@hooks/useActiveSection";
 import Navigation from "@components/layout/Navigation";
 import Footer from "@components/layout/Footer";
+import Divider from "@components/ui/divider";
 import Hero from "@components/sections/Hero";
 import About from "@components/sections/About";
 import Projects from "@components/sections/Projects";
@@ -18,20 +19,15 @@ export default function App() {
 
       <main>
         <Hero />
-
-        <div className="w-full h-px bg-line" />
+        <Divider />
         <About />
-
-        <div className="w-full h-px bg-line" />
+        <Divider />
         <Projects />
-
-        <div className="w-full h-px bg-line" />
+        <Divider />
         <Experience />
-
-        <div className="w-full h-px bg-line" />
+        <Divider />
         <Skills />
-
-        <div className="w-full h-px bg-line" />
+        <Divider />
         <Contact />
       </main>
 

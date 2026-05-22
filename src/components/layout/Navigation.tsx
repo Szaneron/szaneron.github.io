@@ -76,7 +76,7 @@ export default function Navigation() {
             onClick={close}
             className="font-mono text-sm font-medium text-ink hover:text-ink-2 transition-colors duration-250"
           >
-            {SITE.name}
+            {SITE.fullName}
           </a>
           {/* Status — desktop only */}
           <div className="hidden md:flex items-center gap-2">

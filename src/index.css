@@ -145,27 +145,6 @@
   padding-right: var(--spacing-pad);
 }
 
-/* ── Eyebrow (section number + tail line + label) ─────────── */
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: clamp(50px, 7vh, 90px);
-}
-.eyebrow::before {
-  content: "";
-  display: block;
-  width: 18px;
-  height: 1px;
-  background: var(--line-2);
-  flex-shrink: 0;
-}
-.eyebrow-num { color: var(--accent); }
 
 /* ── Mobile nav link typography ──────────────────────────── */
 /*    clamp is intentional — can't be expressed as a Tailwind utility  */

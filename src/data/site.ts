@@ -1,5 +1,6 @@
 export const SITE = {
-  name: "Armin Boleń",
+  name: "Armin",
+  fullName: "Armin Boleń",
   title: "Frontend Developer",
   status: "Working in MindPal",
   email: "armin@example.com",

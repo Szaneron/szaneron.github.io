@@ -2,14 +2,59 @@
 // "Who is this and what do they do?"
 // No scroll-reveal on this section — paints in final state immediately.
 
+import { SITE } from "@/data/site";
+import Metric from "@components/ui/metric";
+
 export default function Hero() {
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-end section-pad">
+    <section
+      id="hero"
+      className="min-h-screen flex flex-col justify-center pt-20 pb-20"
+    >
       <div className="section-inner">
-        {/* ── TODO: implement Hero section ── */}
-        <p className="font-mono text-[11px] tracking-[0.12em] uppercase text-ink-3">
-          <span className="text-accent">00</span> — Hero
-        </p>
+
+        {/* ── Meta row ─────────────────────────────────────────── */}
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-5 font-mono text-xs text-ink-3 mb-8 sm:mb-16">
+          <span><span className="text-accent text-sm">Full-Stack Developer</span> · Poland</span>
+          <span>2026 · <strong className="text-ink font-medium">portfolio</strong></span>
+        </div>
+
+        {/* ── Headline ─────────────────────────────────────────── */}
+        <h1 className="text-6xl sm:text-7xl md:text-8xl xl:text-9xl font-medium leading-none tracking-tighter">
+          Building scalable{" "}
+          <span className="inline sm:block sm:pl-[1.2em]">systems that</span>
+          <span className="block">
+            ship<span className="text-accent">.</span> end to end
+            <span className="text-accent">.</span>
+          </span>
+        </h1>
+
+        {/* ── Bottom row ───────────────────────────────────────── */}
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 xl:gap-20 items-end">
+
+          {/* Intro text */}
+          <p className="text-lg sm:text-xl lg:text-2xl text-ink-2 leading-snug tracking-tight">
+            I'm{" "}
+            <strong className="text-ink font-medium">{SITE.name}</strong>, a full-stack developer with 3+ years of experience in building and scaling production web applications. I bridge the gap between backend architecture and frontend interface, taking features from the initial data model to the final user interaction.
+          </p>
+
+          {/* Quick stats */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6">
+            <Metric
+              value={<><span className="text-accent">3+</span> yrs</>}
+              label="shipping production systems"
+            />
+            <Metric
+              value="Python · Ruby · TS"
+              label="primary languages"
+            />
+            <Metric
+              value={<><span className="text-accent">E2E</span> ownership</>}
+              label="model → API → UI"
+            />
+          </div>
+
+        </div>
       </div>
     </section>
   );

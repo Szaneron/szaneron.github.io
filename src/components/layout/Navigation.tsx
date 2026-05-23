@@ -80,8 +80,8 @@ export default function Navigation() {
             {AUTHOR.fullName}
           </a>
           {/* Status — desktop only */}
-          <div className="hidden md:flex items-center gap-2">
-            <span className="ml-2 w-1.5 h-1.5 rounded-full bg-accent status-pulse shrink-0" />
+          <div className="hidden md:flex items-center gap-3">
+            <span className="ml-2 w-2 h-2 rounded-full bg-accent status-pulse shrink-0" />
             <span className="font-mono text-xs text-ink-3 uppercase tracking-widest">
               {AUTHOR.status}
             </span>
@@ -183,8 +183,8 @@ export default function Navigation() {
         </div>
 
         {/* Status footer — always visible at the bottom */}
-        <div className="shrink-0 px-6 sm:px-10 py-5 border-t border-line flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent status-pulse shrink-0" />
+        <div className="shrink-0 px-6 sm:px-10 py-5 border-t border-line flex items-center gap-3">
+          <span className="w-2 h-2 rounded-full bg-accent status-pulse shrink-0" />
           <span className="font-mono text-xs text-ink-3 uppercase tracking-widest">
             {AUTHOR.status}
           </span>

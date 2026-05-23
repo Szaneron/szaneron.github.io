@@ -20,13 +20,13 @@ export default function About() {
 
         {/* About grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20">
-          <h2 className="lg:col-span-2 text-4xl sm:text-5xl xl:text-7xl font-medium leading-none tracking-tighter">
+          <h2 className="reveal lg:col-span-2 text-4xl sm:text-5xl xl:text-7xl font-medium leading-none tracking-tighter">
             Code that's
             <br />
             built to <span className="text-accent">last.</span>
           </h2>
 
-          <div className="lg:col-span-3 flex flex-col gap-5 text-base sm:text-lg text-ink-2 leading-relaxed">
+          <div className="reveal lg:col-span-3 flex flex-col gap-5 text-base text-ink-2 leading-relaxed">
             <p>
               I started in <strong className="text-ink font-medium">Python and Django</strong> and
               grew heavily into <strong className="text-ink font-medium">Ruby on Rails</strong> and{' '}
@@ -50,8 +50,8 @@ export default function About() {
           </div>
         </div>
 
-        {/* Facts bar */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 border-y border-line">
+        {/* Facts bar — stagger animates each cell in sequence (0, 60, 120, 180 ms) */}
+        <div className="reveal grid grid-cols-2 lg:grid-cols-4 border-y border-line" data-stagger>
           {FACTS.map(({ k, v, sub }, i) => (
             <div
               key={k}

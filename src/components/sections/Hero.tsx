@@ -16,7 +16,7 @@ export default function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="text-6xl sm:text-7xl md:text-8xl xl:text-9xl font-medium leading-none tracking-tighter">
+        <h1 className="text-5xl sm:text-7xl md:text-8xl xl:text-9xl font-medium leading-none tracking-tighter">
           Building scalable <span className="inline sm:block sm:pl-[1.2em]">systems that</span>
           <span className="block">
             ship<span className="text-accent">.</span> end to end

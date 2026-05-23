@@ -114,7 +114,16 @@
 }
 /* stagger direct children — JS sets --i per child index */
 .reveal[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity   700ms var(--ease),
+    transform 700ms var(--ease);
   transition-delay: calc(var(--i, 0) * 60ms);
+}
+.reveal.in[data-stagger] > * {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── Topbar scroll state ──────────────────────────────────── */

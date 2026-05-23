@@ -84,7 +84,7 @@ export default function ImpactCell({ span, iconType, label, value, desc, src }: 
         colSpan,
       ].join(' ')}
     >
-      {/* Accent hairline — grows from left on hover */}
+      {/* Accent hairline - grows from left on hover */}
       <div className="absolute top-0 left-0 h-0.5 w-0 bg-accent transition-[width] duration-500 group-hover:w-full" />
 
       {/* Label */}

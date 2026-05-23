@@ -80,7 +80,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
       },
       {
         bold: 'Bachelor of Engineering',
-        rest: ' completed a degree at the University of Rzeszow specializing in Web Applications, relational databases, and software architecture.',
+        rest: ' completed a degree at the University of Rzeszów specializing in Web Applications, relational databases, and software architecture.',
       },
       {
         bold: 'Technical College',

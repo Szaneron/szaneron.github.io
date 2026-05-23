@@ -8,7 +8,7 @@ import Impact from '@components/sections/Impact';
 import Work from '@components/sections/Work';
 import Timeline from '@components/sections/Timeline';
 import Lab from '@components/sections/Lab';
-import Skills from '@components/sections/Skills';
+import Stack from '@components/sections/Stack';
 import Contact from '@components/sections/Contact';
 
 export default function App() {
@@ -31,7 +31,7 @@ export default function App() {
         <Divider />
         <Lab />
         <Divider />
-        <Skills />
+        <Stack />
         <Divider />
         <Contact />
       </main>

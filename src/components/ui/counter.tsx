@@ -9,7 +9,7 @@ interface Props {
 /**
  * Animates from 0 to `target` using cubic-out easing.
  * Fires once when the element crosses 50% of the viewport.
- * Size is inherited from the parent — wrap in a sized element.
+ * Size is inherited from the parent - wrap in a sized element.
  */
 export default function Counter({ target, suffix = '', duration = 1400 }: Props) {
   const ref = useRef<HTMLSpanElement>(null);

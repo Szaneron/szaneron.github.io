@@ -1,8 +1,3 @@
-// ── Impact metrics data ───────────────────────────────────────────────────────
-// Plain TypeScript — no JSX/React dependencies.
-// Each metric's `value` is an ordered array of typed segments rendered by
-// the Impact component into the final visual layout.
-
 export interface CounterSegment {
   kind: 'counter';
   target: number;

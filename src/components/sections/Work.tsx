@@ -22,7 +22,7 @@ export default function Work() {
     /*
       overflow-x-hidden sits on the section, not on the cases wrapper.
       section-inner has at least 24px of horizontal padding, which absorbs
-      the 16px translateX on hover — no text cutoff, no scroll, smooth slide.
+      the 16px translateX on hover - no text cutoff, no scroll, smooth slide.
     */
     <section id="work" className="py-20 overflow-x-hidden">
       <div className="section-inner space-y-8 sm:space-y-14">
@@ -39,18 +39,18 @@ export default function Work() {
         <div className="border-b border-line">
           {WORK_CASES.map(workCase => (
             /*
-              article — positioned parent for the bar + group anchor + hover bg.
-              inner div — the grid that translates right on hover.
+              article - positioned parent for the bar + group anchor + hover bg.
+              inner div - the grid that translates right on hover.
               translateX never touches layout so text never reflows = no jump.
             */
             <article
               key={workCase.id}
               className="reveal group relative border-t border-line bg-bg transition-colors duration-300 hover:bg-bg-2"
             >
-              {/* Accent bar — grows scaleY 0 to 1 from top on hover */}
+              {/* Accent bar - grows scaleY 0 to 1 from top on hover */}
               <div className="absolute left-0 top-0 h-full w-0.5 origin-top scale-y-0 bg-accent transition-transform duration-400 [transition-timing-function:var(--ease)] group-hover:scale-y-100" />
 
-              {/* Grid — translateX keeps layout intact, text never reflows */}
+              {/* Grid - translateX keeps layout intact, text never reflows */}
               <div
                 className={[
                   'grid grid-cols-1 lg:grid-cols-[3.75rem_1fr_1.4fr]',
@@ -75,7 +75,7 @@ export default function Work() {
                     {workCase.sub}
                   </p>
 
-                  {/*  All tags identical at rest. Tags in accentTags glow coral on hover with a stagger. */}
+                  {/* All tags identical at rest. Tags in accentTags glow coral on hover with a stagger. */}
                   <div className="flex flex-wrap gap-1.5 mt-4">
                     {workCase.tags.map(tag => {
                       const accentIndex = workCase.accentTags.indexOf(tag);

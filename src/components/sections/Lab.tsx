@@ -23,7 +23,7 @@ export default function Lab() {
       <div className="section-inner space-y-8 sm:space-y-14">
         <SectionEyebrow num="05" label="Lab" />
 
-        {/* ── Header — two columns on lg, stacks on mobile ── */}
+        {/* Header - two columns on lg, stacks on mobile */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-end">
           <div className="reveal">
             <h2 className="text-4xl sm:text-5xl xl:text-7xl font-medium leading-none tracking-tighter">
@@ -40,26 +40,26 @@ export default function Lab() {
           </p>
         </div>
 
-        {/* ── Card grid — gap-px on bg-line renders 1px hairlines between cards ── */}
+        {/* Card grid */}
         <div className="reveal grid grid-cols-1 md:grid-cols-3 gap-px bg-line border-y border-line">
           {LAB_PROJECTS.map(project => (
             <article
               key={project.id}
               className="group bg-bg flex flex-col p-8 transition-colors duration-300 hover:bg-bg-2"
             >
-              {/* Meta row — stays ink-3 on hover (understated: these are side projects) */}
+              {/* Meta row */}
               <div className="flex justify-between items-start font-mono text-xs tracking-widest uppercase text-ink-3 mb-7">
                 <span>{project.year}</span>
 
                 <StatusBadge status={project.status} label={project.statusLabel} />
               </div>
 
-              {/* Title — slides to accent on hover */}
+              {/* Title */}
               <h3 className="text-2xl sm:text-3xl xl:text-4xl font-medium leading-tight tracking-tight mb-3.5 transition-colors duration-300 group-hover:text-accent">
                 {project.title}
               </h3>
 
-              {/* Description — flex-1 pushes stack tags to the bottom */}
+              {/* Description */}
               <p className="text-sm leading-relaxed text-ink-2 flex-1">{project.desc}</p>
 
               {/* Stack tags */}

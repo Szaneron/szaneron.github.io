@@ -41,11 +41,11 @@ export default function Lab() {
         </div>
 
         {/* Card grid */}
-        <div className="reveal grid grid-cols-1 md:grid-cols-3 gap-px bg-line border-y border-line">
-          {LAB_PROJECTS.map(project => (
+        <div className="reveal grid grid-cols-1 md:grid-cols-3 border-y border-line">
+          {LAB_PROJECTS.map((project, i) => (
             <article
               key={project.id}
-              className="group bg-bg flex flex-col p-8 transition-colors duration-300 hover:bg-bg-2"
+              className={`group bg-bg flex flex-col p-8 transition-colors duration-300 hover:bg-bg-2 border-line${i < LAB_PROJECTS.length - 1 ? ' border-b md:border-b-0 md:border-r' : ''}`}
             >
               {/* Meta row */}
               <div className="flex justify-between items-start font-mono text-xs tracking-widest uppercase text-ink-3 mb-7">

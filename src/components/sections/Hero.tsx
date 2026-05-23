@@ -1,17 +1,18 @@
 import { AUTHOR } from '@/data/constants';
 import Metric from '@components/ui/metric';
+const year = new Date().getFullYear();
 
 export default function Hero() {
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center py-20">
       <div className="section-inner space-y-8 sm:space-y-14">
         {/* Meta row */}
-        <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-5 font-mono text-xs text-ink-3">
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-5 font-mono text-sm text-ink-3">
           <span>
-            <span className="text-accent text-sm">{AUTHOR.title}</span> · {AUTHOR.location}
+            <span className="text-accent text-xl">{AUTHOR.title}</span>
           </span>
           <span>
-            2026 · <strong className="text-ink font-medium">portfolio</strong>
+            {year} · <strong className="text-ink font-medium">{AUTHOR.location}</strong>
           </span>
         </div>
 
@@ -27,11 +28,11 @@ export default function Hero() {
         {/* Bottom row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 xl:gap-20 items-end">
           {/* Intro text */}
-          <p className="text-lg sm:text-xl lg:text-2xl text-ink-2 leading-snug tracking-tight">
+          <p className="text-lg sm:text-xl text-ink-2 leading-snug tracking-tight">
             I'm <strong className="text-ink font-medium">{AUTHOR.name}</strong>, a full-stack
-            developer with 3+ years of experience in building and scaling production web
-            applications. I bridge the gap between backend architecture and frontend interface,
-            taking features from the initial data model to the final user interaction.
+            developer with {AUTHOR.yearsOfExperience}+ years of experience in building and scaling
+            production web applications. I bridge the gap between backend architecture and frontend
+            interface, taking features from the initial data model to the final user interaction.
           </p>
 
           {/* Quick stats */}

@@ -5,7 +5,7 @@ interface Props {
 
 export default function SectionEyebrow({ num, label }: Props) {
   return (
-    <div className="flex items-center gap-2.5 font-mono text-xs tracking-widest uppercase text-ink-3">
+    <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm tracking-widest uppercase text-ink-3">
       <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
       <span className="text-accent">{num}</span>
       <span>/</span>

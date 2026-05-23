@@ -17,8 +17,9 @@ export default function Impact() {
           </h2>
 
           <p className="font-mono text-xs sm:text-sm leading-relaxed text-ink-3 md:justify-self-end md:max-w-xs">
-            Every entry below is a real before/after from shipped work. Measured in the same
-            environment, same load. The kind of impact I look for in any role.
+            Every entry below is a real before and after comparison from shipped work. Measured in
+            the same environment under identical load. The exact kind of technical impact I deliver
+            in any role.
           </p>
         </div>
 

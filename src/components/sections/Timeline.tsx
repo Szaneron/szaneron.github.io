@@ -63,7 +63,7 @@ export default function Timeline() {
                   )}
 
                   {entry.highlights && (
-                    <ul className="mt-6 flex flex-col font-mono text-[13px]">
+                    <ul className="mt-6 flex flex-col font-mono text-xs">
                       {entry.highlights.map((h, j) => (
                         <li
                           key={j}

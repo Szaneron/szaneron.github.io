@@ -79,7 +79,7 @@ export default function ImpactCell({ span, iconType, label, value, desc, src }: 
       className={[
         'group relative bg-bg flex flex-col justify-between overflow-hidden',
         'transition-colors duration-300 hover:bg-bg-2',
-        'p-6 sm:p-7 lg:p-8 xl:p-10',
+        'p-6 sm:p-7 lg:p-8',
         'md:min-h-64 lg:min-h-72',
         colSpan,
       ].join(' ')}

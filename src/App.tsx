@@ -6,7 +6,7 @@ import Hero from '@components/sections/Hero';
 import About from '@components/sections/About';
 import Impact from '@components/sections/Impact';
 import Work from '@components/sections/Work';
-import Experience from '@components/sections/Experience';
+import Timeline from '@components/sections/Timeline';
 import Skills from '@components/sections/Skills';
 import Contact from '@components/sections/Contact';
 
@@ -26,7 +26,7 @@ export default function App() {
         <Divider />
         <Work />
         <Divider />
-        <Experience />
+        <Timeline />
         <Divider />
         <Skills />
         <Divider />

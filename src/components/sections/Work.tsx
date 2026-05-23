@@ -55,7 +55,7 @@ export default function Work() {
                 className={[
                   'grid grid-cols-1 lg:grid-cols-[3.75rem_1fr_1.4fr]',
                   'gap-4 lg:gap-8 xl:gap-12',
-                  'py-9 lg:py-14',
+                  'py-8',
                   'lg:pr-8',
                   'transition-transform duration-350 [transition-timing-function:var(--ease)]',
                   'lg:group-hover:translate-x-4',

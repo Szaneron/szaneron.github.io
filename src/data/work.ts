@@ -1,17 +1,10 @@
 export interface WorkCase {
   id: string;
-  /** Display number shown in the left column — "01", "02" … */
   pid: string;
   title: string;
-  /** Mono subtitle — context & stack summary */
   sub: string;
   tags: string[];
-  /**
-   * Subset of tags that glow (coral) on hover, in the order they should
-   * light up. Tags not listed here stay at their default muted style.
-   */
   accentTags: string[];
-  /** Plain strings. Use **word** for bold — parsed by the component. */
   paragraphs: string[];
 }
 

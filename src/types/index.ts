@@ -12,7 +12,7 @@ export interface Project {
   description: string;
   tags: string[];
   /** "production" = section 03 "In production"; "lab" = section 05 "Lab" */
-  status: "production" | "lab";
+  status: 'production' | 'lab';
   year: number;
   links?: ProjectLink;
   highlights?: string[];

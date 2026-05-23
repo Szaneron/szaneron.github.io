@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 /**
  * Sets up IntersectionObserver for every `.reveal` element on the page.
@@ -11,25 +11,25 @@ import { useEffect, useState } from "react";
 export function useScrollReveal() {
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
+      entries => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
           const el = entry.target as HTMLElement;
 
-          if (el.hasAttribute("data-stagger")) {
+          if (el.hasAttribute('data-stagger')) {
             Array.from(el.children).forEach((child, i) => {
-              (child as HTMLElement).style.setProperty("--i", String(i));
+              (child as HTMLElement).style.setProperty('--i', String(i));
             });
           }
 
-          el.classList.add("in");
+          el.classList.add('in');
           observer.unobserve(el);
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
     );
 
-    document.querySelectorAll<HTMLElement>(".reveal").forEach((el) => {
+    document.querySelectorAll<HTMLElement>('.reveal').forEach(el => {
       observer.observe(el);
     });
 
@@ -44,16 +44,16 @@ export function useScrollReveal() {
  * @param sectionIds - ordered list of section element ids to track
  */
 export function useActiveSection(sectionIds: string[]): string {
-  const [activeId, setActiveId] = useState(sectionIds[0] ?? "");
+  const [activeId, setActiveId] = useState(sectionIds[0] ?? '');
 
   useEffect(() => {
     if (sectionIds.length === 0) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
+      entries => {
         // Pick the entry that is intersecting and has the largest ratio
         const visible = entries
-          .filter((e) => e.isIntersecting)
+          .filter(e => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
         if (visible) setActiveId(visible.target.id);
@@ -67,8 +67,8 @@ export function useActiveSection(sectionIds: string[]): string {
     }
 
     return () => observer.disconnect();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sectionIds.join(",")]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sectionIds.join(',')]);
 
   return activeId;
 }

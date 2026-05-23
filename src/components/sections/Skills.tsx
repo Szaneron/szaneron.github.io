@@ -3,16 +3,14 @@
 
 export default function Skills() {
   return (
-    <section id="stack" className="section-pad">
+    <section id="stack" className="py-20">
       <div className="section-inner">
         <div className="eyebrow">
           <span className="eyebrow-num">06</span>
           <span>Stack</span>
         </div>
         {/* ── TODO: implement Stack section ── */}
-        <p className="font-mono text-[11px] tracking-[0.12em] uppercase text-ink-3">
-          stub
-        </p>
+        <p className="font-mono text-[11px] tracking-[0.12em] uppercase text-ink-3">stub</p>
       </div>
     </section>
   );

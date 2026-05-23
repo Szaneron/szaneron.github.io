@@ -7,9 +7,7 @@ export default function Footer() {
         <span className="font-mono text-[11px] tracking-widest uppercase text-muted">
           Armin Boleń · {year}
         </span>
-        <span className="font-mono text-[11px] text-muted">
-          Built with React + Tailwind
-        </span>
+        <span className="font-mono text-[11px] text-muted">Built with React + Tailwind</span>
       </div>
     </footer>
   );

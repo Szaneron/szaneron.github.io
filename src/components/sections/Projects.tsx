@@ -3,16 +3,14 @@
 
 export default function Projects() {
   return (
-    <section id="work" className="section-pad">
+    <section id="work" className="py-20">
       <div className="section-inner">
         <div className="eyebrow">
           <span className="eyebrow-num">03</span>
           <span>In production</span>
         </div>
         {/* ── TODO: implement Projects section ── */}
-        <p className="font-mono text-[11px] tracking-[0.12em] uppercase text-ink-3">
-          stub
-        </p>
+        <p className="font-mono text-[11px] tracking-[0.12em] uppercase text-ink-3">stub</p>
       </div>
     </section>
   );

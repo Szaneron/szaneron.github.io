@@ -5,10 +5,15 @@ interface Props {
 
 export default function SectionEyebrow({ num, label }: Props) {
   return (
-    <div className="flex items-center gap-2.5 font-mono text-xxs tracking-widest uppercase text-ink-3 mb-14 lg:mb-20 before:content-[''] before:block before:w-4 before:h-px before:bg-line-2 before:shrink-0">
+    <div className="flex items-center gap-2.5 font-mono text-xs tracking-widest uppercase text-ink-3">
+      <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
       <span className="text-accent">{num}</span>
       <span>/</span>
       <span>{label}</span>
+      <span className="flex shrink-0">
+        <span className="w-8 h-px bg-accent" />
+        <span className="w-28 h-px bg-line-2" />
+      </span>
     </div>
   );
 }

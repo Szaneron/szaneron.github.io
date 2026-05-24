@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block direct PDF indexing — CV is available for download via the portfolio site
+Disallow: /*.pdf
+
+Sitemap: https://szaneron.github.io/sitemap.xml

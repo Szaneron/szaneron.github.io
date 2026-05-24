@@ -46,7 +46,7 @@ export const IMPACT_METRICS: ImpactMetric[] = [
       { kind: 'counter', target: 300, suffix: ' ms' },
     ],
     desc: 'Optimized analytics for 150k+ projects by eliminating N+1 patterns and using precomputed metrics. Reduced maximum request time by 98 percent.',
-    src: 'MindPal · Solar Design Platform',
+    src: 'MindPal · Pegasus',
   },
   {
     id: 'resume-checker',

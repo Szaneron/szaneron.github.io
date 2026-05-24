@@ -30,7 +30,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
         rest: ' legal technology platform built with multi step compliance workflows and automated document generation pipelines.',
       },
       {
-        bold: 'Solar Design Platform',
+        bold: 'Pegasus',
         rest: ' large scale engineering application featuring heavy mathematical layout calculations and complex analytical dashboards.',
       },
       {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode, type FormEvent } from 'react';
 import {
   MapPin,
   Calendar,
@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { getCalApi } from '@calcom/embed-react';
 import SectionEyebrow from '@components/ui/section-eyebrow';
+import Toast from '@components/ui/toast';
 import { AUTHOR } from '@/data/author';
 import { WEB3FORMS_ENDPOINT, WEB3FORMS_PUBLIC_KEY } from '@/config/web3forms';
 
@@ -89,7 +90,7 @@ function SocialRow({
   value,
 }: {
   href: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   label: string;
   value: string;
 }) {
@@ -166,14 +167,19 @@ export default function Contact() {
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [cvLoading, setCvLoading] = useState(false);
+  const [cvError, setCvError] = useState(false);
+  const [cvSuccess, setCvSuccess] = useState(false);
 
   // Fetch-on-demand CV download — no direct <a href> in HTML so crawlers
   // cannot discover or index the PDF. Always fetches from the external R2 URL.
   const handleCvDownload = async () => {
     if (cvLoading) return;
     setCvLoading(true);
+    setCvError(false);
+    setCvSuccess(false);
     try {
       const res = await fetch(AUTHOR.cvUrl);
+      if (!res.ok) throw new Error(`CV fetch failed: ${res.status}`);
       const blob = await res.blob();
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
@@ -183,12 +189,24 @@ export default function Contact() {
       link.click();
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
+      setCvSuccess(true);
+    } catch {
+      setCvError(true);
     } finally {
       setCvLoading(false);
     }
   };
 
   const year = new Date().getFullYear();
+
+  // Always shows author's timezone (Europe/Warsaw), not the visitor's
+  const warsawGmt =
+    new Intl.DateTimeFormat('en', {
+      timeZone: 'Europe/Warsaw',
+      timeZoneName: 'shortOffset',
+    })
+      .formatToParts(new Date())
+      .find(p => p.type === 'timeZoneName')?.value ?? 'GMT+1';
 
   // Randomise transmission ID on mount
   useEffect(() => {
@@ -233,7 +251,7 @@ export default function Contact() {
     setErrorMsg('');
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (status === 'loading') return;
 
@@ -565,7 +583,7 @@ export default function Contact() {
                   disabled={cvLoading || !AUTHOR.cvUrl}
                   className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-accent text-bg font-mono text-xs font-medium tracking-[0.06em] uppercase transition-colors duration-250 group-hover:bg-ink disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                 >
-                  {cvLoading ? 'Loading…' : 'Download'}
+                  {cvLoading ? 'Loading…' : cvError ? 'Retry' : 'Download'}
                   {cvLoading ? (
                     <Loader2 className="w-3.5 h-3.5 animate-spin" />
                   ) : (
@@ -594,7 +612,7 @@ export default function Contact() {
                 Book a 20 min intro call
               </span>
               <span className="font-mono text-xs text-ink-3 tracking-wider">
-                Pon-Fri · CET afternoons
+                Mon–Fri · CET afternoons
               </span>
 
               {/* Corner icon */}
@@ -617,8 +635,7 @@ export default function Contact() {
                     Location
                   </span>
                   <span className="text-sm font-medium tracking-tight">
-                    {AUTHOR.location} · GMT{new Date().getTimezoneOffset() / -60 >= 0 ? '+' : ''}
-                    {new Date().getTimezoneOffset() / -60}
+                    {AUTHOR.location} · {warsawGmt}
                   </span>
                 </span>
                 {/* Status pulse */}
@@ -628,6 +645,21 @@ export default function Contact() {
           </aside>
         </div>
       </div>
+
+      <Toast
+        open={cvError}
+        onClose={() => setCvError(false)}
+        variant="error"
+        title="Download failed"
+        message="Could not fetch CV — check your connection."
+      />
+      <Toast
+        open={cvSuccess}
+        onClose={() => setCvSuccess(false)}
+        variant="success"
+        title="Download success"
+        message="CV saved to your downloads folder."
+      />
     </section>
   );
 }

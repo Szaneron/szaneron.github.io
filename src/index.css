@@ -196,6 +196,18 @@
     padding-left 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* ── Toast auto-dismiss progress bar ─────────────────────── */
+@keyframes toast-shrink {
+  from { width: 100%; }
+  to   { width: 0%;   }
+}
+.toast-progress {
+  animation-name: toast-shrink;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  /* animation-duration is injected via inline style from the component */
+}
+
 /* ── Reduce-motion overrides ──────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .reveal {

@@ -11,7 +11,7 @@ export default function Footer() {
           <span> · Armin Boleń · {year}</span>
           <span>·</span> <span className="text-title">Built in Poland</span>
         </span>
-        <span className="font-mono text-xs text-muted">Let's build something together</span>
+        <span className="font-mono text-xs text-muted">Available for new challenges</span>
       </div>
     </footer>
   );

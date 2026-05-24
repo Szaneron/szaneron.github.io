@@ -1,4 +1,4 @@
-import { AUTHOR } from '@/data/constants';
+import { AUTHOR } from '@/data/author';
 import Metric from '@components/ui/metric';
 const year = new Date().getFullYear();
 

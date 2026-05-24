@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { cn } from '@lib/utils';
 import { buttonVariants } from '@components/ui/button';
 import { MoveUpRight } from 'lucide-react';
-import { AUTHOR } from '@data/constants';
+import { AUTHOR } from '@/data/author';
 
 const NAV_LINKS = [
   { id: 'about', label: 'About' },

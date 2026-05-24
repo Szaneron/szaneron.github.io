@@ -1,4 +1,4 @@
-import { AUTHOR } from '@/data/constants';
+import { AUTHOR } from '@/data/author';
 import SectionEyebrow from '@components/ui/section-eyebrow';
 
 const FACTS = [

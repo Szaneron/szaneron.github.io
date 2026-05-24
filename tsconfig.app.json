@@ -9,16 +9,13 @@
     "skipLibCheck": true,
 
     /* Path aliases */
-    "baseUrl": "./src",
     "paths": {
-      "@/*": ["*"],
-      "@pages/*": ["pages/*"],
-      "@services/*": ["services/*"],
-      "@components/*": ["components/*"],
-      "@assets/*": ["assets/*"],
-      "@lib/*": ["lib/*"],
-      "@data/*": ["data/*"],
-      "@constants/*": ["constants/*"]
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@data/*": ["./src/data/*"],
+      "@hooks/*": ["./src/hooks/*"]
     },
 
     /* Bundler mode */

@@ -1,11 +1,219 @@
 @import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  background-color: #111828;
+/* ============================================================
+   ARMIN BOLEŃ — Portfolio v4
+   Design system: Geist + Geist Mono · one warm coral accent
+   All component styles live in Tailwind classes.
+   This file holds: tokens, base reset, and structural helpers
+   that cannot be expressed as atomic utilities.
+   ============================================================ */
+
+/* ── Tailwind v4 theme tokens ─────────────────────────────── */
+@theme {
+  /* Surfaces */
+  --color-bg:       #0a0a0a;
+  --color-bg-2:     #111111;
+  --color-bg-3:     #181818;
+
+  /* Hairlines */
+  --color-line:     #1f1f1f;
+  --color-line-2:   #2a2a2a;
+  --color-line-3:   #383838;
+
+  /* Ink */
+  --color-ink:      #f5f5f4;
+  --color-ink-2:    #c7c5c0;
+  --color-ink-3:    #8a8783;
+  --color-muted:    #5a5854;
+  --color-muted-2:  #38362f;
+
+  /* Accent — warm coral, used sparingly */
+  --color-accent:   #ff6b3d;
+  --color-accent-2: #c84a22;
+
+  /* Typography — "Geist Variable" is the family name from @fontsource-variable/geist */
+  --font-sans: "Geist Variable", "Geist", system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono Variable", "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+
+  /* Layout spacing — px-pad, py-pad, etc. */
+  --spacing-pad: clamp(1.5rem, 5vw, 5rem);
+
+  /* Custom text sizes */
+  --text-xxs: 0.6875rem; /* 11px */
+
+  /* Durations */
+  --duration-250: 250ms;
 }
 
-body {
-  font-size: 16px;
+/* ── CSS shorthand aliases (for vanilla CSS & JS refs) ───── */
+:root {
+  --bg:        var(--color-bg);
+  --bg-2:      var(--color-bg-2);
+  --bg-3:      var(--color-bg-3);
+  --line:      var(--color-line);
+  --line-2:    var(--color-line-2);
+  --line-3:    var(--color-line-3);
+  --ink:       var(--color-ink);
+  --ink-2:     var(--color-ink-2);
+  --ink-3:     var(--color-ink-3);
+  --mute:      var(--color-muted);
+  --mute-2:    var(--color-muted-2);
+  --accent:    var(--color-accent);
+  --accent-2:  var(--color-accent-2);
+
+  --maxw:   1320px;
+  --pad-x:  clamp(24px, 5vw, 80px);
+  --ease:     cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Base styles ─────────────────────────────────────────────────────────
+   Tailwind v4 preflight (in @layer base) already handles:
+     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+   DO NOT repeat that rule here — un-layered styles win over @layer utilities,
+   which would break every px-*, py-*, gap-* utility class.
+   All custom base styles go inside @layer base so utilities can still override.
+   ──────────────────────────────────────────────────────────────────────── */
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) transparent;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-accent-2); }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--accent); color: #0a0a0a; }
+
+  a   { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  h1, h2, h3, h4, h5 { font-weight: 500; letter-spacing: -0.02em; }
+  h1 { letter-spacing: -0.035em; }
+}
+
+/* Themed scrollbar */
+.scrollbar-theme {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) transparent;
+}
+.scrollbar-theme::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollbar-theme::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-theme::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+.scrollbar-theme::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-2);
+}
+
+/* ── Scroll reveal ────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity   800ms var(--ease),
+    transform 800ms var(--ease);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* stagger direct children — JS sets --i per child index */
+.reveal[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity   700ms var(--ease),
+    transform 700ms var(--ease);
+  transition-delay: calc(var(--i, 0) * 60ms);
+}
+.reveal.in[data-stagger] > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Topbar scroll state ──────────────────────────────────── */
+.topbar-scrolled {
+  border-bottom-color: var(--line) !important;
+  background-color: rgba(10, 10, 10, 0.88) !important;
+}
+
+/* ── Status dot pulse ─────────────────────────────────────── */
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0   rgba(255, 107, 61, 0.65); }
+  70%  { box-shadow: 0 0 0 7px rgba(255, 107, 61, 0);    }
+  100% { box-shadow: 0 0 0 0   rgba(255, 107, 61, 0);    }
+}
+.status-pulse {
+  animation: pulse-ring 2.2s ease-in-out infinite;
+}
+
+/* ── Section layout ───────────────────────────────────────── */
+.section-pad {
+  padding-top:    clamp(96px, 14vh, 160px);
+  padding-bottom: clamp(96px, 14vh, 160px);
+}
+.section-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-left:  var(--spacing-pad);
+  padding-right: var(--spacing-pad);
+}
+
+
+/* ── Mobile nav link typography ──────────────────────────── */
+/*    clamp is intentional — can't be expressed as a Tailwind utility  */
+.mn-link {
+  font-size: clamp(34px, 9vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transition:
+    opacity      0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform    0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    color        0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    padding-left 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Toast auto-dismiss progress bar ─────────────────────── */
+@keyframes toast-shrink {
+  from { width: 100%; }
+  to   { width: 0%;   }
+}
+.toast-progress {
+  animation-name: toast-shrink;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  /* animation-duration is injected via inline style from the component */
+}
+
+/* ── Reduce-motion overrides ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .status-pulse { animation: none; }
 }

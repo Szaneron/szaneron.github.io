@@ -20,7 +20,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     period: '05 / 2024 — present',
     isCurrent: true,
     company: 'MindPal',
-    role: 'Full-Stack Developer',
+    role: 'Full Stack Developer',
     stack: 'Python · Django · Ruby on Rails · React · TypeScript  · PostgreSQL · Azure · AWS',
     summary:
       'Taking complete engineering ownership across multiple production applications, designing backend architectures, optimizing database configurations, and crafting highly responsive client side user interfaces.',

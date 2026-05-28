@@ -1,7 +1,7 @@
 export const AUTHOR = {
   name: 'Armin',
   fullName: 'Armin Boleń',
-  title: 'Full-Stack Developer',
+  title: 'Full Stack Developer',
   status: 'Working in MindPal',
   yearsOfExperience: 3,
   currentCompany: 'MindPal',

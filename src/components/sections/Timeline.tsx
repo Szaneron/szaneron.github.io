@@ -45,7 +45,7 @@ export default function Timeline() {
                     {entry.role && (
                       <>
                         {' '}
-                        — <span className="text-accent">{entry.role}</span>
+                        - <span className="text-accent">{entry.role}</span>
                       </>
                     )}
                   </h3>

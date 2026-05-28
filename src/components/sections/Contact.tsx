@@ -601,6 +601,7 @@ export default function Contact() {
               data-cal-config='{"layout":"month_view"}'
               className="group relative flex-1 flex flex-col gap-3 p-4 bg-bg-2 border border-line transition-all duration-250 hover:border-ink-3 hover:bg-bg-3 text-left cursor-pointer"
             >
+              <span className="border-trace" aria-hidden="true" />
               {/* Eyebrow row */}
               <div className="flex items-center gap-3">
                 <Calendar className="w-4 h-4 text-accent shrink-0" />
